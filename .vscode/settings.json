@@ -1,0 +1,9 @@
+{
+    "antlr4.generation": {        
+        "language": "CSharp",
+        "listeners": false,
+        "visitors": false,
+        "outputDir": "../",
+        "package": "ParsingServices.Parsers"
+    }
+}

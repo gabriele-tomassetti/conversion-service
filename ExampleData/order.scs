@@ -1,0 +1,18 @@
+using ParsingServices.Models;
+
+if(Data is DataArray)
+{                
+    bool simpleValues = true;
+    foreach(var v in (Data as DataArray).Values)
+    {
+        if(!(v is DataValue))
+            simpleValues = false;
+    }
+
+    if(simpleValues)
+    {
+        (Data as DataArray).Values = (Data as DataArray).Values.OrderBy(v => (v as DataValue).Text).ToList();
+    }
+}
+
+return Data;

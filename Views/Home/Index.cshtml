@@ -1,0 +1,29 @@
+@using ParsingServices.Models
+@model IEnumerable<InfoData>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="title">Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Delete</th>
+            <th>Get</th>
+            <th>To JSON</th>
+            <th>To CSV</th>  
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) { 
+        <tr>
+            <td><a href="/delete/@item.Id">[X]</a></td>
+            <td><a href="/@item.Id">@item.Id</a></td>         
+            <td><a href="/@item.Id/JSON">JSON</a></td>  
+            <td><a href="/@item.Id/CSV">CSV</a></td>            
+        </tr>
+    }    
+</tbody>
+</table>
+<p><a href="/add">Add a new file</a>&nbsp;&nbsp;&nbsp;<a href="/addOperation">Add a new operation</a></p>

@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = $"Show {ViewData["Id"]}";
+}
+
+<h1 class="title">@($"Show {ViewData["Id"]}")</h1>
+
+<p>
+    <strong>Id:</strong>&nbsp;&nbsp;@ViewData["Id"]<br>
+    <strong>Convert to </strong><a href="/@ViewData["Id"]/JSON">JSON</a><br>
+    <strong>Convert to </strong><a href="/@ViewData["Id"]/CSV">CSV</a><br>
+</p>
+<p>File:<br>
+<pre>
+@if(@ViewData["Status"] as bool? == true){    
+    @Html.Raw(ViewData["File"]);
+}
+else {
+    <span>The selected format is not valid for this data</span>
+}
+</pre>
+</p>
+<br>
+<p><a href="/">Return to Home</a></p>
